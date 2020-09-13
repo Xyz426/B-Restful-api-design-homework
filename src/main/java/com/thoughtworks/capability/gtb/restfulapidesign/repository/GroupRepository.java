@@ -27,4 +27,10 @@ public class GroupRepository {
         }
         return groupList;
     }
+
+    public Group updateGroup(int id, String name) {
+        groupList.get(id - 1).setName(name);
+
+        return groupList.get(id - 1);
+    }
 }

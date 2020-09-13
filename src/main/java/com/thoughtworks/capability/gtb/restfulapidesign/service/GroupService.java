@@ -19,4 +19,8 @@ public class GroupService {
     public List<Group> divideGroup() {
         return groupRepository.divideGroup(studentRepository.getStudents());
     }
+
+    public Group updateGroup(int id, String name) {
+        return groupRepository.updateGroup(id,name);
+    }
 }

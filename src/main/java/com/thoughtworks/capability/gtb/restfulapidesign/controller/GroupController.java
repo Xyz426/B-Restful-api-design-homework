@@ -21,4 +21,9 @@ public class GroupController {
     public ResponseEntity<List<Group>> divideGroup(){
         return ResponseEntity.status(HttpStatus.CREATED).body(groupService.divideGroup());
     }
+
+    @PatchMapping(path = "{id}/{name}")
+    public ResponseEntity<Group> updateGroup(@PathVariable int id,@PathVariable String name){
+        return ResponseEntity.ok(groupService.updateGroup(id,name));
+    }
 }
