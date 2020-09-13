@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentRepository {
@@ -27,5 +28,16 @@ public class StudentRepository {
 
     public void deleteStudentById(int id) {
         studentList.remove(id - 1);
+    }
+
+    public List<Student> getStudents() {
+        return studentList;
+    }
+
+    public List<Student> getStudentsByGender(Gender gender) {
+        List<Student> resultStudents = studentList.stream().filter(student -> student.getGender() == gender)
+                .collect(Collectors.toList());
+
+        return resultStudents;
     }
 }

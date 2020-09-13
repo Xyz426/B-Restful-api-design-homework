@@ -1,8 +1,8 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
+import com.thoughtworks.capability.gtb.restfulapidesign.domain.Gender;
 import com.thoughtworks.capability.gtb.restfulapidesign.domain.Student;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.StudentService;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,5 +29,15 @@ public class StudentController {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteStudent(@PathVariable int id){
         studentService.deleteStudent(id);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Student>> getStudents(){
+        return ResponseEntity.ok(studentService.getStudents());
+    }
+
+    @GetMapping(path = "genders/{gender}")
+    public ResponseEntity<List<Student>> getStudentsByGender(@PathVariable String gender){
+        return ResponseEntity.ok(studentService.getStudentsByGender(gender.equals("male") ? Gender.MALE:Gender.FEMALE));
     }
 }
