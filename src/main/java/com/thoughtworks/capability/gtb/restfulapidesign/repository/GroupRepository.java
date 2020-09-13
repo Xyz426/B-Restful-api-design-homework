@@ -22,7 +22,7 @@ public class GroupRepository {
 
     public List<Group> divideGroup(List<Student> studentList) {
         clearGroupStudents();
-        
+
         Collections.shuffle(studentList);
         for (int i = 0 ; i < studentList.size(); i++) {
             groupList.get(i % 6).getStudentList().add(studentList.get(i));
@@ -39,6 +39,14 @@ public class GroupRepository {
     public Group updateGroup(int id, String name) {
         groupList.get(id - 1).setName(name);
 
+        return groupList.get(id - 1);
+    }
+
+    public List<Group> getGroups() {
+        return groupList;
+    }
+
+    public Group getOneGroup(int id) {
         return groupList.get(id - 1);
     }
 }

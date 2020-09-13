@@ -23,4 +23,12 @@ public class GroupService {
     public Group updateGroup(int id, String name) {
         return groupRepository.updateGroup(id,name);
     }
+
+    public List<Group> getGroups() {
+        return groupRepository.getGroups();
+    }
+
+    public Group getOneGroup(int id) {
+        return groupRepository.getOneGroup(id);
+    }
 }

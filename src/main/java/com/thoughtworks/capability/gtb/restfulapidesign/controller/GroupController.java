@@ -26,4 +26,14 @@ public class GroupController {
     public ResponseEntity<Group> updateGroup(@PathVariable int id,@PathVariable String name){
         return ResponseEntity.ok(groupService.updateGroup(id,name));
     }
+
+    @GetMapping
+    public ResponseEntity<List<Group>> getGroups(){
+        return ResponseEntity.ok(groupService.getGroups());
+    }
+
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Group> getOneGroup(@PathVariable int id){
+        return ResponseEntity.ok(groupService.getOneGroup(id));
+    }
 }
