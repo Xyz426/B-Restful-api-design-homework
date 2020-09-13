@@ -21,11 +21,19 @@ public class GroupRepository {
     }
 
     public List<Group> divideGroup(List<Student> studentList) {
+        clearGroupStudents();
+        
         Collections.shuffle(studentList);
         for (int i = 0 ; i < studentList.size(); i++) {
             groupList.get(i % 6).getStudentList().add(studentList.get(i));
         }
         return groupList;
+    }
+
+    public void clearGroupStudents(){
+        groupList.stream().forEach(group -> {
+            group.getStudentList().clear();
+        });
     }
 
     public Group updateGroup(int id, String name) {
