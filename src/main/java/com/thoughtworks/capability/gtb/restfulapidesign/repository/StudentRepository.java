@@ -44,4 +44,19 @@ public class StudentRepository {
     public Student getOneStudentById(int id) {
         return studentList.get(id - 1);
     }
+
+    public Student updateStudentById(int id, Student student) {
+        Student resultStudent = studentList.get(id - 1);
+        if(student.getGender() != null){
+            resultStudent.setGender(student.getGender());
+        }
+        if(student.getName() != null){
+            resultStudent.setName(student.getName());
+        }
+        if(student.getNote() != null){
+            resultStudent.setNote(student.getNote());
+        }
+
+        return resultStudent;
+    }
 }

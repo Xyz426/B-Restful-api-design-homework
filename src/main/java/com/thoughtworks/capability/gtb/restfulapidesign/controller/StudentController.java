@@ -45,4 +45,10 @@ public class StudentController {
     public ResponseEntity<Student> getOneStudent(@PathVariable int id){
         return ResponseEntity.ok(studentService.getOneStudent(id));
     }
+
+    @PatchMapping(path = "{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable int id,@RequestBody Student student){
+        return ResponseEntity.ok(studentService.updateStudent(id,student));
+    }
+
 }
