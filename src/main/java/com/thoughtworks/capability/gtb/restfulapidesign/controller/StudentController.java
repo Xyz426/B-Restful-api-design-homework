@@ -40,4 +40,9 @@ public class StudentController {
     public ResponseEntity<List<Student>> getStudentsByGender(@PathVariable String gender){
         return ResponseEntity.ok(studentService.getStudentsByGender(gender.equals("male") ? Gender.MALE:Gender.FEMALE));
     }
+
+    @GetMapping(path = "{id}")
+    public ResponseEntity<Student> getOneStudent(@PathVariable int id){
+        return ResponseEntity.ok(studentService.getOneStudent(id));
+    }
 }

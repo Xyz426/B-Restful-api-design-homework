@@ -40,4 +40,8 @@ public class StudentRepository {
 
         return resultStudents;
     }
+
+    public Student getOneStudentById(int id) {
+        return studentList.get(id - 1);
+    }
 }
